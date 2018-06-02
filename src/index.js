@@ -1,5 +1,4 @@
 import express from "express";
-import { hellofn, Hello } from "./utils/hello";
 
 const app = express();
 
