@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { bubbleSort } from "./utils/bubbleSort";
+import { mergeSort } from "./utils/mergeSort";
 
 const app = express();
 
@@ -15,6 +16,15 @@ app.post('/bubbleSort', (req, res) => {
         res.send(bubbleSort(req.body));
     }
     catch (error) {
+        res.status(400).send(error.message);
+    }
+});
+
+app.post('/mergeSort', (req, res) => {
+    try{
+        res.send(mergeSort(req.body));
+    }
+    catch(error){
         res.status(400).send(error.message);
     }
 });
