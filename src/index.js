@@ -1,7 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { bubbleSort } from "./utils/bubbleSort";
-import { mergeSort } from "./utils/mergeSort";
+import { mergeSortHandler, bubbleSortHandler } from "./apiHandlers";
 
 const app = express();
 
@@ -10,23 +9,10 @@ app.use(bodyParser.json())
 
 
 app.get('/', (req, res) => res.send('Hello World!'));
-app.post('/bubbleSort', (req, res) => {
-    console.log(req.body)
-    try {
-        res.send(bubbleSort(req.body));
-    }
-    catch (error) {
-        res.status(400).send(error.message);
-    }
-});
-
-app.post('/mergeSort', (req, res) => {
-    try{
-        res.send(mergeSort(req.body));
-    }
-    catch(error){
-        res.status(400).send(error.message);
-    }
-});
+app.post('/mergeSort', mergeSortHandler);
+app.post('/bubbleSort', bubbleSortHandler);
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
+
+// necessary for integration testing
+export default app;

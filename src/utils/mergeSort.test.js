@@ -1,7 +1,7 @@
 import { mergeSort } from './mergeSort';
 
 
-fdescribe('MergeSort', () => {
+describe('MergeSort', () => {
     it('should sort 0 items and return 0 items', () => {
         expect(mergeSort([])).toEqual([]);
     });
@@ -27,5 +27,9 @@ fdescribe('MergeSort', () => {
         let sorted = items.sort(function (a, b) { return a - b; });
         let results = mergeSort(items);
         expect(results).toEqual([1, 2, 2, 2, 4, 6, 6, 6, 6, 7]);
+
+        items = [1, 2, 34, 6, 1];
+        results = mergeSort(items);
+        expect(results).toEqual([1, 1, 2, 6, 34]);
     });
 });

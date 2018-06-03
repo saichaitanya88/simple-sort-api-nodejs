@@ -21,8 +21,8 @@ export function bubbleSort(items) {
             if (items[i-1] > items[i]){
                 // Swap
                 let tmp = items[i-1];
-                items[i] = items[i-1];
-                items[i-1] = tmp;
+                items[i-1] = items[i];
+                items[i] = tmp;
                 swapped = true;
             }
         }

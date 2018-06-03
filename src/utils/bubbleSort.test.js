@@ -27,5 +27,10 @@ describe('BubbleSort', () => {
         let sorted = items.sort(function (a, b) { return a - b; });
         let results = bubbleSort(items);
         expect(results).toEqual([1, 2, 2, 2, 4, 6, 6, 6, 6, 7]);
+
+
+        items = [1, 2, 34, 6, 1];
+        results = bubbleSort(items);
+        expect(results).toEqual([1, 1, 2, 6, 34]);
     });
 });
